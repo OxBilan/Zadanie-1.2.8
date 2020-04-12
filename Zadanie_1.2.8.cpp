@@ -3,17 +3,22 @@
 
 unsigned int nasobky_v_rozsahu (int a, int b, unsigned int m){
 	
-	int c, d, e;
-		
-	d = m * m / m;
-	c = (a + (a >= 0) * (d - 1)) / d * d; //Najdeme prvy nasobok intervalu od cisla a do b.
+	int c, d, n;
 	
-	for(int i = c; i <= b; i += m) //Pomocou prveho nasobku najdeme pocet nasobkov v intervale.
+	d = m;
+	 
+	c = (a + (a >= 0) * (d - 1)) / d * d; //Najdeme prvy nasobok nasho intervalu.
+
+	if (c <= b) //Najdeme hodnotu nasho intervalu.
 	{
-		e++;
+		n = (b - c) / d + 1;
+	}
+	else
+	{
+		n = 0;
 	}
 	
-	return e; //Hodnotu vraciame k funkcii main.
+	return n; //Hodnotu vraciame k funkcii main.
 }
 
 int main(){
@@ -31,7 +36,7 @@ int main(){
 	}
 	
 	printf("\nVase cislo - %d.\n", m); //Vypiseme dane cislo.
-	printf("Interval je od cisla %d do %d.\n", a, b); //Vypiseme integral.
+	printf("Interval je od cisla %d do %d.\n", a, b); //Vypiseme interval.
 	
 	k = nasobky_v_rozsahu(a, b, m);
 	
