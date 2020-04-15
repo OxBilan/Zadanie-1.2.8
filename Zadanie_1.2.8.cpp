@@ -9,14 +9,7 @@ unsigned int nasobky_v_rozsahu (int a, int b, unsigned int m){
 	 
 	c = (a + (a >= 0) * (d - 1)) / d * d; //Najdeme prvy nasobok nasho intervalu.
 
-	if (c <= b) //Najdeme hodnotu nasho intervalu.
-	{
-		n = (b - c) / d + 1;
-	}
-	else
-	{
-		n = 0;
-	}
+	n = (c <= b) * (b - c) / d + 1; //Najdeme hodnotu nasho intervalu.
 	
 	return n; //Hodnotu vraciame k funkcii main.
 }
